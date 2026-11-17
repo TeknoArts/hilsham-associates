@@ -207,32 +207,61 @@ export function Home() {
         </div>
       </section>
 
-      {/* ——— Dream story ——— */}
-      <section className="section band-ivory story-split">
-        <div className="container story-split__inner">
-          <Reveal className="story-split__text">
-            <p className="section__eyebrow">Human first</p>
-            <h2 className="section__title display-lg">
-              Every Business Starts With a Dream.
-            </h2>
-            <p className="section__lead">
-              You did not start a business to wrestle with portals, forms, and jargon.
-              You started it to build something that matters — for your family, your team,
-              your community.
-            </p>
-            <p className="section__body">
-              Hilsham & Associates sits beside Kenyan owners at those moments when the
-              paperwork feels heavier than the dream. We explain what is going on, point
-              you to official sources, and help you move.
-            </p>
-          </Reveal>
-          <MaskReveal className="story-split__media">
+      {/* ——— Human first / dream ——— */}
+      <section className="dream" aria-labelledby="dream-heading">
+        <div className="container">
+          <div className="dream__top">
+            <Reveal className="dream__headline-block">
+              <p className="section__eyebrow">Human first</p>
+              <h2 id="dream-heading" className="dream__title">
+                Every Business Starts With a Dream.
+              </h2>
+            </Reveal>
+            <Reveal className="dream__copy" delay={0.08}>
+              <p>
+                You did not start a business to wrestle with portals, forms, and jargon.
+                You started it to build something that matters — for your family, your
+                team, your community.
+              </p>
+              <p>
+                Hilsham & Associates sits beside Kenyan owners when the paperwork feels
+                heavier than the dream. We explain what is going on, point you to official
+                sources, and help you move.
+              </p>
+            </Reveal>
+          </div>
+
+          <MaskReveal className="dream__media">
             <ParallaxImage
-              src="/images/human-first.jpg"
-              alt="Kenyan businessman smiling in a professional setting"
-              imgClassName="story-split__img"
+              src="/images/dream.jpg"
+              alt="Business owners working through plans together"
+              imgClassName="dream__img"
             />
           </MaskReveal>
+
+          <Stagger className="dream__beats">
+            {[
+              {
+                title: 'Plain language',
+                copy: 'No jargon dump — just what applies to your situation.',
+              },
+              {
+                title: 'Official channels',
+                copy: 'We help you prepare and file through the proper portals.',
+              },
+              {
+                title: 'Human start',
+                copy: 'WhatsApp us. Tell us what you are trying to get done.',
+              },
+            ].map((beat) => (
+              <StaggerItem key={beat.title}>
+                <article className="dream__beat">
+                  <h3>{beat.title}</h3>
+                  <p>{beat.copy}</p>
+                </article>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 

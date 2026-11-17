@@ -720,6 +720,110 @@ p {
   object-fit: cover;
 }
 
+/* ——— Human first / dream ——— */
+.dream {
+  padding: clamp(3.75rem, 8vw, 6rem) 0;
+  background:
+    radial-gradient(ellipse 40% 50% at 0% 0%, color-mix(in srgb, var(--color-lagoon) 12%, transparent), transparent 55%),
+    linear-gradient(180deg, #eaf1ef 0%, var(--color-canvas) 55%, #e7eeeb 100%);
+}
+
+.dream__top {
+  display: grid;
+  gap: 1.5rem 3rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  align-items: end;
+}
+
+@media (min-width: 860px) {
+  .dream__top {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.dream__title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.8vw, 3.5rem);
+  max-width: 11ch;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.dream__copy {
+  max-width: 34rem;
+}
+
+.dream__copy p {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--color-ink) 74%, transparent);
+}
+
+.dream__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.dream__media {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  max-height: 280px;
+  border-radius: 1.15rem 1.15rem 1.85rem 1.15rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft), var(--shadow-glow);
+  background: var(--color-mist);
+  border-left: 5px solid var(--color-lagoon);
+}
+
+.dream__media > *,
+.dream__media > * > * {
+  width: 100%;
+  height: 100%;
+}
+
+.dream__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.dream__beats {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@media (min-width: 800px) {
+  .dream__beats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+.dream__beat {
+  padding: 1.25rem 1.2rem;
+  background: var(--color-white);
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 7%, transparent);
+  height: 100%;
+}
+
+.dream__beat h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: var(--color-lagoon);
+}
+
+.dream__beat p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
+}
+
 /* ——— Keep pace ——— */
 .keep-pace {
   padding: clamp(3.5rem, 8vw, 5.5rem) 0;
