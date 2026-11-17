@@ -100,71 +100,74 @@ export function Home() {
   const featured = ARTICLES[0]
   const rest = ARTICLES.slice(1)
 
-  const heroBits = [
-    {
-      key: 'brand',
-      node: (
-        <p className="hero-editorial__brand">
-          Hilsham<span>& Associates</span>
-        </p>
-      ),
-    },
-    {
-      key: 'headline',
-      node: (
-        <h1 className="hero-editorial__headline">
-          Big Business Dreams.
-          <br />
-          Less Paperwork.
-        </h1>
-      ),
-    },
-    {
-      key: 'support',
-      node: (
-        <p className="hero-editorial__support">
-          We make tax, registration and compliance easier for Kenyan businesses.
-        </p>
-      ),
-    },
-    {
-      key: 'cta',
-      node: (
-            <div className="btn-row">
-          <a className="btn btn--primary" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-            <MessageCircle size={18} aria-hidden="true" />
-            WhatsApp {PHONE}
-          </a>
-          <Link className="btn btn--secondary" to="/contact">
-            Talk to Hilsham
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
-        </div>
-      ),
-    },
-  ]
-
   return (
     <>
-      {/* ——— Editorial hero ——— */}
-      <section className="hero-editorial" aria-label="Homepage hero">
-        <Float className="hero-editorial__blob hero-editorial__blob--peach" />
-        <Float className="hero-editorial__blob hero-editorial__blob--yellow" duration={9} distance={16} />
-        <Float className="hero-editorial__blob hero-editorial__blob--sage" duration={11} distance={10} />
-
-        <div className="hero-editorial__grid">
-          <div className="hero-editorial__copy">
-            {heroBits.map((item, i) =>
+      {/* ——— Hero ——— */}
+      <section className="hero" aria-label="Homepage hero">
+        <div className="hero__rail" aria-hidden="true" />
+        <div className="container hero__grid">
+          <div className="hero__copy">
+            {(
+              [
+                {
+                  key: 'brand',
+                  node: (
+                    <p className="hero__brand">
+                      Hilsham
+                      <span>& Associates</span>
+                    </p>
+                  ),
+                },
+                {
+                  key: 'headline',
+                  node: (
+                    <h1 className="hero__headline">
+                      Big Business Dreams.
+                      <span>Less Paperwork.</span>
+                    </h1>
+                  ),
+                },
+                {
+                  key: 'support',
+                  node: (
+                    <p className="hero__support">
+                      We make tax, registration and compliance easier for Kenyan
+                      businesses.
+                    </p>
+                  ),
+                },
+                {
+                  key: 'cta',
+                  node: (
+                    <div className="btn-row hero__actions">
+                      <a
+                        className="btn btn--primary"
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <MessageCircle size={18} aria-hidden="true" />
+                        WhatsApp {PHONE}
+                      </a>
+                      <Link className="btn btn--secondary" to="/contact">
+                        Talk to Hilsham
+                        <ArrowRight size={18} aria-hidden="true" />
+                      </Link>
+                    </div>
+                  ),
+                },
+              ] as const
+            ).map((item, i) =>
               reduce ? (
                 <div key={item.key}>{item.node}</div>
               ) : (
                 <motion.div
                   key={item.key}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.55,
-                    delay: 0.1 + 0.09 * i,
+                    delay: 0.08 + 0.08 * i,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
@@ -174,29 +177,32 @@ export function Home() {
             )}
           </div>
 
-          <div className="hero-editorial__visual">
+          <div className="hero__visual">
             {reduce ? (
-              <img
-                src="/images/entrepreneur.jpg"
-                alt="Kenyan business owner smiling outdoors"
-                width={1600}
-                height={1200}
-              />
+              <div className="hero__frame">
+                <img
+                  src="/images/human-first.jpg"
+                  alt="Kenyan businessman smiling in a professional setting"
+                  width={1600}
+                  height={2400}
+                />
+              </div>
             ) : (
               <motion.div
-                className="hero-editorial__frame"
-                initial={{ opacity: 0, clipPath: 'inset(8% 8% 8% 8%)' }}
-                animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
-                transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                className="hero__frame"
+                initial={{ opacity: 0, clipPath: 'inset(0 18% 0 18%)' }}
+                animate={{ opacity: 1, clipPath: 'inset(0 0% 0 0%)' }}
+                transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
               >
                 <img
-                  src="/images/entrepreneur.jpg"
-                  alt="Kenyan business owner smiling outdoors"
+                  src="/images/human-first.jpg"
+                  alt="Kenyan businessman smiling in a professional setting"
                   width={1600}
-                  height={1200}
+                  height={2400}
                 />
               </motion.div>
             )}
+            <Float className="hero__orb" duration={8} distance={10} />
           </div>
         </div>
       </section>
